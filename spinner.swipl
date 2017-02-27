@@ -1,0 +1,18 @@
+#!/usr/bin/swipl -q -g run -s
+run :-
+    forever.
+
+forever :-
+    loop(['\\o/', '\\o>', '<o>', '<o/']),
+    forever.
+
+loop([]) :-
+    true.
+
+loop([H|T]) :-
+    write('\r'),
+    write(H),
+    flush_output,
+    sleep(0.1),
+    loop(T),
+    true.
